@@ -10,7 +10,9 @@ Rails.application.routes.draw do
           
   # READ
   get "/movies"  => "movies#index"
-  get "/movies/:id"  => "movies#show", as: :movie #movie_path() (expects an argument to populate :id segment)
+
+  #example of changing the name of the route
+  get "/films/:id"  => "movies#show", as: :movie #movie_path() (expects an argument to populate :id segment)
   
   # UPDATE
   patch "/movies/:id" =>  "movies#update"

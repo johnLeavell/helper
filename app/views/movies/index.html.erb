@@ -1,11 +1,8 @@
-<h1>
-  List of all movies
-</h1>
+<h1>List of all movies</h1>
 
 <hr>
 
 <div>
-
   <%= link_to "Add a new movie", new_movie_path %>
 </div>
 
@@ -13,56 +10,24 @@
 
 <table>
   <tr>
-    <th>
-      ID
-    </th>
-
-    <th>
-      Title
-    </th>
-
-    <th>
-      Description
-    </th>
-
-    <th>
-      Created at
-    </th>
-
-    <th>
-      Updated at
-    </th>
-
-    <th>
-    </th>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th></th>
   </tr>
 
-  <% @list_of_movies.each do |a_movie| %>
-  <tr>
-    <td>
-      <%= a_movie.id %>
-    </td>
-
-    <td>
-      <%= a_movie.title %>
-    </td>
-
-    <td>
-      <%= a_movie.description %>
-    </td>
-
-    <td>
-      <%= time_ago_in_words(a_movie.created_at) %> ago
-    </td>
-    <td>
-      <%= time_ago_in_words(a_movie.updated_at) %> ago
-    </td>
-
-    <td>
-      <%= link_to "Show details", a_movie %>
-        Show details
-      </a>
-    </td>
-  </tr>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td><%= movie.id %></td>
+      <td><%= movie.title %></td>
+      <td><%= movie.description %></td>
+      <td><%= time_ago_in_words(movie.created_at) %> ago</td>
+      <td><%= time_ago_in_words(movie.updated_at) %> ago</td>
+      <td>
+        <%= link_to "Show details", movie %>
+      </td>
+    </tr>
   <% end %>
 </table>
